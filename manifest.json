@@ -1,0 +1,28 @@
+{
+    "package_name": "Varispeed",
+    "id": "com.fedetrillo.varispeed",
+    "title": "Varispeed",
+    "name": "Varispeed",
+    "version": "1.0.0",
+    "manufacturer": "Fede Trillo",
+    "contact": "fedetrillo@gmail.com",
+    "description": [
+        "Slow the whole session down (or speed it up) without changing its pitch, using LUNA's own session speed: record a difficult part more slowly, then play it at normal speed. ",
+        "Takes recorded at another speed are fitted to the tempo by themselves. Dark and grey themes, 7 languages."
+    ],
+    "categories": [
+        "Recording"
+    ],
+    "icon": "icon.png",
+    "sdk_version": "3.1.2",
+    "min_luna_version": "3.1.2",
+    "engines": [
+        "luna"
+    ],
+    "html": "index.html",
+    "target": "window",
+    "floating": true,
+    "show_with_session": true,
+    "width": 340,
+    "height": 385
+}
