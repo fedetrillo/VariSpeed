@@ -4,7 +4,7 @@
 
 (() => {
   const $ = (id) => document.getElementById(id);
-  const VERSION = '1.0.0';
+  const VERSION = '1.0.1';
   const MIN = 25, MAX = 150;
   const PRESETS = [50, 60, 70, 75, 80, 85, 90, 100];
   const PROPS = ['enable_tempo_percent', 'tempo_percent', 'pitch', 'playing', 'record_enabled'];
@@ -52,6 +52,8 @@
       connecting: 'A ligar ao LUNA…', waiting: 'À espera do LUNA…', noSession: 'Abre uma sessão no LUNA.',
       fixing: 'A acertar o take…', fixed: '{name} acertado', fixedN: '{n} takes acertados', fixFail: 'Não foi possível acertar {name}', refused: 'O LUNA não aceitou a mudança', copied: 'Relatório copiado' },
   };
+  // The guide: its texts, in every language.
+  for (const [c, v] of Object.entries({"en": {"help": "Quick guide", "helpBtn": "Guide", "tNext": "Next", "tBack": "Back", "tSkip": "Skip", "tDone": "Got it", "langT": "Choose your language", "langX": "The guide and the whole window will use it. You can change it later here, at the top right.", "zt": "Always at hand", "z": "Open this guide again whenever you need it with the ? button.", "q1t": "Session speed", "q1": "Drag to slow the whole session down or speed it up (25 to 150 %), keeping the pitch. Below it you see the tempo you are actually hearing.", "q2t": "Quick speeds", "q2": "The usual practice speeds, one click away.", "q3t": "On and back", "q3": "Switch it on and off without losing the speed you set; Back to 100 % returns to normal.", "q4t": "Takes at another speed", "q4": "With this on, a take you record at another speed is fitted to the tempo, so it plays in time at any speed."}, "es": {"help": "Guía rápida", "helpBtn": "Guía", "tNext": "Siguiente", "tBack": "Atrás", "tSkip": "Saltar", "tDone": "Entendido", "langT": "Elige tu idioma", "langX": "La guía y toda la ventana lo usarán. Puedes cambiarlo luego aquí, arriba a la derecha.", "zt": "Siempre a mano", "z": "Vuelve a esta guía cuando la necesites con el botón ?.", "q1t": "Velocidad de la sesión", "q1": "Arrastra para ralentizar o acelerar toda la sesión (del 25 al 150 %) sin cambiar el tono. Debajo ves el tempo que estás oyendo de verdad.", "q2t": "Velocidades rápidas", "q2": "Las velocidades de práctica de siempre, a un clic.", "q3t": "Activar y volver", "q3": "Actívalo y desactívalo sin perder la velocidad elegida; Volver a 100 % lo deja normal.", "q4t": "Tomas a otra velocidad", "q4": "Con esto marcado, una toma que grabes a otra velocidad se ajusta al tempo, así suena a tiempo a cualquier velocidad."}, "ca": {"help": "Guia ràpida", "helpBtn": "Guia", "tNext": "Següent", "tBack": "Enrere", "tSkip": "Saltar", "tDone": "Entesos", "langT": "Tria el teu idioma", "langX": "La guia i tota la finestra el faran servir. El pots canviar després aquí, a dalt a la dreta.", "zt": "Sempre a mà", "z": "Torna a aquesta guia quan la necessitis amb el botó ?.", "q1t": "Velocitat de la sessió", "q1": "Arrossega per alentir o accelerar tota la sessió (del 25 al 150 %) sense canviar el to. A sota veus el tempo que realment sents.", "q2t": "Velocitats ràpides", "q2": "Les velocitats de pràctica de sempre, a un clic.", "q3t": "Activar i tornar", "q3": "Activa-ho i desactiva-ho sense perdre la velocitat triada; Tornar a 100 % ho deixa normal.", "q4t": "Preses a una altra velocitat", "q4": "Amb això marcat, una presa que gravis a una altra velocitat s’ajusta al tempo, així sona a temps a qualsevol velocitat."}, "fr": {"help": "Guide rapide", "helpBtn": "Guide", "tNext": "Suivant", "tBack": "Retour", "tSkip": "Passer", "tDone": "Compris", "langT": "Choisissez votre langue", "langX": "Le guide et toute la fenêtre l’utiliseront. Vous pourrez la changer ici, en haut à droite.", "zt": "Toujours à portée", "z": "Rouvrez ce guide quand vous voulez avec le bouton ?.", "q1t": "Vitesse de la session", "q1": "Faites glisser pour ralentir ou accélérer toute la session (de 25 à 150 %) sans changer la hauteur. En dessous, le tempo que vous entendez vraiment.", "q2t": "Vitesses rapides", "q2": "Les vitesses de travail habituelles, en un clic.", "q3t": "Activer et revenir", "q3": "Activez-le ou coupez-le sans perdre la vitesse choisie ; Revenir à 100 % remet la vitesse normale.", "q4t": "Prises à une autre vitesse", "q4": "Coché, une prise enregistrée à une autre vitesse est calée sur le tempo, pour jouer en place à toute vitesse."}, "de": {"help": "Kurzanleitung", "helpBtn": "Anleitung", "tNext": "Weiter", "tBack": "Zurück", "tSkip": "Überspringen", "tDone": "Verstanden", "langT": "Wähle deine Sprache", "langX": "Die Anleitung und das ganze Fenster verwenden sie. Du kannst sie später hier oben rechts ändern.", "zt": "Immer zur Hand", "z": "Öffne diese Anleitung jederzeit wieder mit dem Button ?.", "q1t": "Session-Geschwindigkeit", "q1": "Zieh, um die ganze Session zu verlangsamen oder zu beschleunigen (25 bis 150 %), ohne die Tonhöhe zu ändern. Darunter siehst du das Tempo, das du wirklich hörst.", "q2t": "Schnellwahl", "q2": "Die üblichen Übungstempi, einen Klick entfernt.", "q3t": "Ein und zurück", "q3": "Schalte es ein und aus, ohne die gewählte Geschwindigkeit zu verlieren; Zurück auf 100 % stellt wieder normal ein.", "q4t": "Takes in anderem Tempo", "q4": "Ist das an, wird ein Take, den du in anderer Geschwindigkeit aufnimmst, ans Tempo angepasst und spielt bei jeder Geschwindigkeit im Takt."}, "it": {"help": "Guida rapida", "helpBtn": "Guida", "tNext": "Avanti", "tBack": "Indietro", "tSkip": "Salta", "tDone": "Capito", "langT": "Scegli la tua lingua", "langX": "La guida e tutta la finestra la useranno. Puoi cambiarla poi qui, in alto a destra.", "zt": "Sempre a portata di mano", "z": "Riapri questa guida quando ti serve con il pulsante ?.", "q1t": "Velocità della sessione", "q1": "Trascina per rallentare o accelerare tutta la sessione (dal 25 al 150 %) senza cambiare l’intonazione. Sotto vedi il tempo che senti davvero.", "q2t": "Velocità rapide", "q2": "Le solite velocità di studio, a un clic.", "q3t": "Attiva e torna", "q3": "Attivalo e disattivalo senza perdere la velocità scelta; Torna a 100 % lo riporta normale.", "q4t": "Take a un’altra velocità", "q4": "Con questa opzione, una take registrata a un’altra velocità viene adattata al tempo e suona a tempo a qualsiasi velocità."}, "pt": {"help": "Guia rápido", "helpBtn": "Guia", "tNext": "Seguinte", "tBack": "Voltar", "tSkip": "Saltar", "tDone": "Percebi", "langT": "Escolhe o teu idioma", "langX": "O guia e toda a janela vão usá-lo. Podes mudá-lo depois aqui, em cima à direita.", "zt": "Sempre à mão", "z": "Volta a este guia quando precisares com o botão ?.", "q1t": "Velocidade da sessão", "q1": "Arrasta para abrandar ou acelerar toda a sessão (de 25 a 150 %) sem mudar o tom. Por baixo vês o tempo que estás mesmo a ouvir.", "q2t": "Velocidades rápidas", "q2": "As velocidades de estudo de sempre, à distância de um clique.", "q3t": "Ligar e voltar", "q3": "Liga e desliga sem perder a velocidade escolhida; Voltar a 100 % repõe o normal.", "q4t": "Takes a outra velocidade", "q4": "Com isto marcado, um take gravado a outra velocidade é ajustado ao tempo e toca a tempo a qualquer velocidade."}})) Object.assign(I18N[c], v);
   const LANGS = Object.keys(I18N);
   let lang = (() => {
     const saved = store.get('lang');
@@ -87,6 +89,7 @@
     for (const [id, name] of [['tDark', 'dark'], ['tGrey', 'grey']]) {
       $(id).classList.toggle('on', theme === name); $(id).title = t(name); $(id).setAttribute('aria-label', t(name));
     }
+    $('help').title = t('help'); $('help').setAttribute('aria-label', t('help')); { const q = document.createElement('b'); q.textContent = '?'; $('help').replaceChildren(q); }
     $('reset').textContent = t('reset');
     $('autoLabel').textContent = t('fit');
     paintStatus();
@@ -94,6 +97,24 @@
   $('lang').onchange = () => { lang = $('lang').value; store.set('lang', lang); paintStatic(); repaint(); };
   for (const b of [$('tDark'), $('tGrey')]) b.onclick = () => { theme = b.dataset.t; store.set('theme', theme); paintStatic(); };
   paintStatic();
+  const tour = window.AddOnTour?.attach({
+    button: $('help'), key: `${KEY}tourSeen`,
+    labels: () => ({ next: t('tNext'), back: t('tBack'), skip: t('tSkip'), done: t('tDone') }),
+    language: {
+      sel: '#lang',
+      list: () => LANGS.map((c) => [c, I18N[c]._name]),
+      current: () => lang,
+      set: (c) => { lang = c; store.set('lang', c); paintStatic(); repaint(); },
+      title: () => t('langT'), text: () => t('langX'),
+    },
+    steps: () => [
+      { sel: '.dial', title: () => t('q1t'), text: () => t('q1') },
+      { sel: '#presets', title: () => t('q2t'), text: () => t('q2') },
+      { sel: '.row', title: () => t('q3t'), text: () => t('q3') },
+      { sel: '.check', title: () => t('q4t'), text: () => t('q4') },
+      { sel: '#help', title: () => t('zt'), text: () => t('z') },
+    ],
+  });
 
   // ---- LUNA ----------------------------------------------------------------------------------------
   let luna;

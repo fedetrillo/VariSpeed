@@ -8,12 +8,14 @@
     :root, [data-theme="dark"] {
       --plate: #1d1f23; --panel: #282b31; --well: #141518; --edge: #363a42;
       --text: #ecebe6; --dim: #8e939c; --silk: #b9bdc5;
+      --acc: var(--slow); --acc2: var(--slow); --panel2: var(--panel);
       --amber: #f2b13c; --slow: #6fb7ff; --normal: #6ad48a; --bad: #ff8a80; --ink: #10161d;
       color-scheme: dark;
     }
     [data-theme="grey"] {
       --plate: #4b4f56; --panel: #585d65; --well: #41454b; --edge: #6a6f78;
       --text: #f4f3ef; --dim: #c4c7cc; --silk: #dfe1e5;
+      --acc: var(--slow); --acc2: var(--slow); --panel2: var(--panel);
       --amber: #ffc45c; --slow: #8cc8ff; --normal: #84e3a2; --bad: #ffb3a8; --ink: #1b2129;
     }
     * { box-sizing: border-box; }
@@ -56,12 +58,15 @@
 
     .check { display: flex; gap: 8px; align-items: flex-start; background: var(--panel); border-radius: 10px; padding: 9px 10px; font-size: 12px; font-weight: 700; color: var(--text); cursor: pointer; }
     .check input { accent-color: var(--slow); margin: 1px 0 0; }
+    #help { margin-left: auto; padding: 0; width: 26px; min-width: 26px; height: 24px; }
+    #help b { background: none; width: auto; height: auto; font-size: 12px; }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
   <header>
     <h1>Varispeed <small id="ver"></small></h1>
+    <button id="help"></button>
     <div class="theme">
       <button data-t="dark" id="tDark"><svg viewBox="0 0 16 16"><path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7z" fill="currentColor"/></svg></button>
       <button data-t="grey" id="tGrey"><svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></svg></button>
@@ -83,6 +88,7 @@
     <label class="check"><input type="checkbox" id="auto"><span id="autoLabel"></span></label>
   </main>
   <script src="vendor/luna.global.js"></script>
+  <script src="tour.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
