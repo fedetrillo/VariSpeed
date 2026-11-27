@@ -4,7 +4,7 @@
 
 (() => {
   const $ = (id) => document.getElementById(id);
-  const VERSION = '1.0.1';
+  const VERSION = '1.0.2';
   const MIN = 25, MAX = 150;
   const PRESETS = [50, 60, 70, 75, 80, 85, 90, 100];
   const PROPS = ['enable_tempo_percent', 'tempo_percent', 'pitch', 'playing', 'record_enabled'];
@@ -280,7 +280,7 @@
     $('ver').onclick = async (ev) => {
       if (!ev.altKey) return;
       const text = JSON.stringify({ version: VERSION, want, live, autoFit, tempoPercentProp: tr.tempoPercent?.value, bpm: s.musical.timeline.tempoAt(tr.tick), log }, null, 2);
-      try { await navigator.clipboard.writeText(text); say('copied', {}, 'ok', 3000); } catch { /* nothing to do */ }
+      try { if (await AddOnCopy(text)) say('copied', {}, 'ok', 5000); } catch { /* nothing to do */ }
     };
 
     page.on(tr.punchedIn, () => { if (tr.punchedIn.value) void onPunchIn(); else void onPunchOut(); });

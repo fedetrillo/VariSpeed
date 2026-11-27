@@ -1,8 +1,8 @@
 # Varispeed for LUNA
 
-Slow the whole session down, or speed it up, without changing its pitch. Record a difficult
-part (a guitar solo, a fast run) at 75 %, then play it back at normal speed, in time with
-everything else.
+Record a hard part slower, play it back at normal speed. Varispeed slows the whole session down
+(or speeds it up) without changing its pitch, using LUNA's own session speed, and takes recorded
+at another speed fit the tempo by themselves.
 
 <p>
   <img src="docs/screenshot-dark.png" alt="Varispeed, dark theme" width="300">
